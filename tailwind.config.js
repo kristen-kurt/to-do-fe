@@ -2,16 +2,20 @@
 module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'my-custom-font': ['MyCustomFont', 'sans-serif'],
+      },
+    },
   },
   plugins: [require('daisyui')],
   daisyui: {
     themes: [
       {
         cupcake: {
-          primary: 'oklch(85% 0.138 181.071)',
-          'primary-content': 'oklch(43% 0.078 188.216)',
-          secondary: 'oklch(89% 0.061 343.231)',
+          primary: '#003052',
+          'primary-content': '#fdfcf4',
+          secondary: '#004374',
           'secondary-content': 'oklch(45% 0.187 3.815)',
           accent: 'oklch(90% 0.076 70.697)',
           'accent-content': 'oklch(47% 0.157 37.304)',

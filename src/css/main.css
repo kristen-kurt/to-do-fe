@@ -4,8 +4,14 @@
 
 body {
     margin: 0;
-    display: flex;
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
+}
+
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('../fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('ttf');
+    font-weight: 400; /* Use numerical values for weights */
+    font-style: normal;
+    /*font-display: swap; !* A good practice for performance *!*/
 }
