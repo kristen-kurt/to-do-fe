@@ -74,7 +74,7 @@ const FeatureItem = ({
   description: string
 }) => (
   <div className="flex items-start text-left">
-    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+    <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center mr-4 mt-1 shrink-0">
       <CheckIcon />
     </div>
     <div>
@@ -148,18 +148,32 @@ const InputField = ({
   value: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }) => (
-  <div className="form-control">
-    <label className="label">
-      <span className="label-text text-base-content">{label}</span>
-    </label>
+  <fieldset className="fieldset">
+    <legend className="fieldset-legend">{label}</legend>
     <input
       type={type}
       placeholder={placeholder}
-      className="input input-bordered w-full bg-base-100 text-base-content placeholder:text-base-content/60 required"
+      className="input input-bordered validator w-full bg-base-100 text-base-content placeholder:text-base-content/60 "
       value={value}
       onChange={onChange}
+      required
     />
-  </div>
+    <p className="label validator-hint">Enter valid data</p>
+  </fieldset>
+  // <div className="form-control">
+  //   <label className="label">
+  //     <span className="label-text text-base-content">{label}</span>
+  //   </label>
+  //   <input
+  //     type={type}
+  //     placeholder={placeholder}
+  //     className="input input-bordered validator w-full bg-base-100 text-base-content placeholder:text-base-content/60 "
+  //     value={value}
+  //     onChange={onChange}
+  //     required
+  //   />
+  //   <div className="validator-hint">Enter valid email address</div>
+  // </div>
 )
 
 interface FormProps {
@@ -218,6 +232,7 @@ const AuthForm = ({
             onChange={onNameChange}
           />
         )}
+
         <InputField
           label="Email"
           type="email"
