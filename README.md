@@ -1,69 +1,86 @@
-# React + TypeScript + Vite
+# To Do Web Application Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Built with React.js + Vite + Typescript + Tailwind CSS. This project is connected to node js backend application.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔐 **Authentication & Authorization**
+- 📝 **To-Do Management** - CRUD operations for tasks
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config([
- globalIgnores(['dist']),
- {
-  files: ['**/*.{ts,tsx}'],
-  extends: [
-   // Other configs...
+- **Framework**: React.js
+- **Language**: TypeScript
+- **Build Tool**: Vite
 
-   // Remove tseslint.configs.recommended and replace with this
-   ...tseslint.configs.recommendedTypeChecked,
-   // Alternatively, use this for stricter rules
-   ...tseslint.configs.strictTypeChecked,
-   // Optionally, add this for stylistic rules
-   ...tseslint.configs.stylisticTypeChecked,
+## Prerequisites
 
-   // Other configs...
-  ],
-  languageOptions: {
-   parserOptions: {
-    project: ['./tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: import.meta.dirname,
-   },
-   // other options...
-  },
- },
-])
+- Node.js (v14 or higher)
+- Tailwind CSS v4.x.xx
+- npm
+- Vite: v7.x
+- React: v19.x
+- Tailwind CSS: v4.x
+- TypeScript: v5.x
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd to-do-fe
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
- globalIgnores(['dist']),
- {
-  files: ['**/*.{ts,tsx}'],
-  extends: [
-   // Other configs...
-   // Enable lint rules for React
-   reactX.configs['recommended-typescript'],
-   // Enable lint rules for React DOM
-   reactDom.configs.recommended,
-  ],
-  languageOptions: {
-   parserOptions: {
-    project: ['./tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: import.meta.dirname,
-   },
-   // other options...
-  },
- },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Create environment variables:
+```bash
+cp .env.example .env
+```
+
+4. Configure your `.env` file with the following variables: (or your configured PORT for backend).
+
+
+```env
+VITE_API_URL=http://localhost:3000/api
+```
+
+
+## Scripts
+
+- `npm run dev` - Start development server with ts-node
+
+## Unit Test
+
+- `npm test DashboardPage.crud` - Run tests to check CRUD operations work properly
+  
+
+---
+
+## 📖 Project Story
+
+### 1. The Problem
+User want to manage daily tasks easily in a simple and minimal way 
+
+### 2. The Goal
+Build a **lightweight To-Do app** where users can:
+- Create an account and securely log in  
+- Manage tasks with basic CRUD (Create, Read, Update, Delete) operations
+- Mark tasks as completed
+
+### 3. The Solution
+Designed a **full-stack To-Do application**:
+- **Frontend**: React (with Vite) + Tailwind CSS + DaisyUI for fast and responsive UI  
+- **Backend**: Node.js + Express.js for RESTful APIs and authentication  
+- **Auth**: User registration and login functionality to protect tasks per user  
+ 
+
+---
+
+
+
+
