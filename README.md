@@ -29,7 +29,7 @@ Built with React.js + Vite + Typescript + Tailwind CSS. This project is connecte
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone [repository-url](https://github.com/kristen-kurt/to-do-fe.git)
 cd to-do-fe
 ```
 
