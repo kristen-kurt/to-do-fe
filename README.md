@@ -53,7 +53,7 @@ VITE_API_URL=http://localhost:3000/api
 
 ## Scripts
 
-- `npm run dev` - Start development server with ts-node
+- `npm run dev` - Start development server
 
 ## Unit Test
 
