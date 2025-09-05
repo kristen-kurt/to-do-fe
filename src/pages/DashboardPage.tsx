@@ -183,6 +183,7 @@ const DashboardPage = () => {
             <div className="input-group">
               <input
                 type="text"
+                name="add_todo"
                 placeholder="What are you doing today?"
                 className="input input-bordered rounded-lg flex-1 bg-base-200 text-base-content placeholder-base-content/60 mr-2 w-100"
                 value={newTask}
@@ -191,6 +192,7 @@ const DashboardPage = () => {
               />
               <button
                 className="btn btn-square btn-primary"
+                data-testid="add-task-button"
                 onClick={addTask}
                 disabled={!newTask.trim() || isCreating}
               >
@@ -278,6 +280,7 @@ const DashboardPage = () => {
                     <>
                       <button
                         className="btn btn-xs btn-ghost text-base-content/70 hover:text-primary"
+                        data-testid="edit-button"
                         onClick={() => startEditing(todo)}
                       >
                         {isUpdating && editingId === todo.id ? (
@@ -288,6 +291,7 @@ const DashboardPage = () => {
                       </button>
                       <button
                         className="btn btn-xs btn-ghost text-base-content/70 hover:text-error"
+                        data-testid="delete-button"
                         onClick={() => removeTask(todo.id)}
                       >
                         {isDeleting && deletingId === todo.id ? (
