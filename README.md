@@ -13,6 +13,7 @@ Built with React.js + Vite + Typescript + Tailwind CSS. This project is connecte
 - **Framework**: React.js
 - **Language**: TypeScript
 - **Build Tool**: Vite
+- **Testing Framework**: Jest
 
 ## Prerequisites
 
