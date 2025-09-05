@@ -10,10 +10,3 @@ body {
     min-width: 320px;
     min-height: 100vh;
 }
-
-@font-face {
-    font-family: 'MyCustomFont';
-    src: url('../fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('ttf');
-    font-weight: 400;
-    font-style: normal;
-}

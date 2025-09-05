@@ -1,9 +1,13 @@
-// api/authService.js
-const API_BASE_URL =
-  process.env.REACT_APP_API_URL || 'http://localhost:3001/api'
+import type {
+  RegisterData,
+  LoginCredentials,
+  AuthResponse,
+} from '../hooks/useAuth'
+
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api'
 
 export class AuthService {
-  static async register(userData) {
+  static async register(userData: RegisterData): Promise<AuthResponse> {
     const response = await fetch(`${API_BASE_URL}/auth/register`, {
       method: 'POST',
       headers: {
@@ -15,7 +19,7 @@ export class AuthService {
     return this.handleResponse(response)
   }
 
-  static async login(credentials) {
+  static async login(credentials: LoginCredentials): Promise<AuthResponse> {
     const response = await fetch(`${API_BASE_URL}/auth/login`, {
       method: 'POST',
       headers: {
@@ -27,13 +31,15 @@ export class AuthService {
     return this.handleResponse(response)
   }
 
-  static async handleResponse(response) {
+  private static async handleResponse(
+    response: Response
+  ): Promise<AuthResponse> {
     const data = await response.json()
 
     if (!response.ok) {
       throw new Error(data.message || 'Request failed')
     }
 
-    return data
+    return data as AuthResponse
   }
 }
