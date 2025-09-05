@@ -282,7 +282,7 @@ export default function AuthenticationPage() {
         })
 
         if (result?.success) {
-          toast.success('Signup successful! You can now log in.')
+          toast.success('Signup successful!')
           handleToggleMode()
         } else {
           toast.error(result?.error || 'Registration failed!')

@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { AuthService } from '../api/authService.ts'
 import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from '../contexts/AuthContext'
 
 export type User = {
   id: number | string
@@ -44,6 +45,7 @@ export type UseAuthReturn = {
 
 export const useAuth = (): UseAuthReturn => {
   const navigate = useNavigate()
+  const { setAuthenticated } = useAuthContext() // Use context
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const register = async (userData: RegisterData): Promise<ApiAuthResponse> => {
@@ -52,6 +54,8 @@ export const useAuth = (): UseAuthReturn => {
       const response = await AuthService.register(userData)
       if (response.token) {
         localStorage.setItem('authToken', response.token)
+        setAuthenticated(true)
+        navigate('/dashboard')
       }
 
       return {
@@ -77,6 +81,8 @@ export const useAuth = (): UseAuthReturn => {
       const response = await AuthService.login(credentials)
       if (response.token) {
         localStorage.setItem('authToken', response.token)
+        setAuthenticated(true) // Update global auth state
+        navigate('/dashboard') // Auto redirect to dashboard
       }
 
       return {
@@ -96,6 +102,7 @@ export const useAuth = (): UseAuthReturn => {
 
   const logout = (): void => {
     localStorage.removeItem('authToken')
+    setAuthenticated(false) // Update global auth state
     navigate('/')
   }
 
